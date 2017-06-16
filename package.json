@@ -1,0 +1,44 @@
+{
+  "name": "good-morning-italia-enhanced",
+  "version": "1.0.0",
+  "description": "(experimental) enhanced version of this amazing mailing list.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sirLisko/goodMorningItaliaEnhanced.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Luca Lischetti",
+    "email": "luca@sirlisko.com",
+    "url": "https://sirlisko.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
+    "moment": "^2.18.1",
+    "nightmare": "^2.10.0",
+    "nodemailer": "^4.0.1",
+    "nodemailer-mailgun-transport": "^1.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "standard",
+      "promise",
+      "node"
+    ]
+  }
+}
