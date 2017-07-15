@@ -1,5 +1,7 @@
-const Nightmare = require('nightmare')()
-const cheerio = require('cheerio')
+import nightmare from 'nightmare'
+import cheerio from 'cheerio'
+
+const Nightmare = nightmare()
 
 function parseContent (content) {
   const $ = cheerio.load(content)
@@ -22,4 +24,4 @@ function getNews (credentials) {
     .then(parseContent)
 }
 
-module.exports = getNews
+export default getNews

@@ -1,18 +1,18 @@
-var moment = require('moment')
+import moment from 'moment'
 
-var getNews = require('./modules/getNews')
-var mail = require('./modules/mail')
+import getNews from './modules/getNews'
+import mail from './modules/mail'
 
-var gmi = require('./config').goodMorningItalia
+import { goodMorningItalia } from './config'
 
 function sendMail (content) {
   mail(
-    gmi.email,
+    goodMorningItalia.email,
     `Good Morning Italia - ${moment().format('L')}`,
     content
   )
 }
 
-getNews(gmi)
+getNews(goodMorningItalia)
   .then(sendMail)
   .catch(error => console.error('Failed:', error))

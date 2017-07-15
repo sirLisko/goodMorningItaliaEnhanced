@@ -1,8 +1,8 @@
-var nodemailer = require('nodemailer')
-var mailGun = require('nodemailer-mailgun-transport')
-var mailGunConfig = require('./../config').mailgun
+import nodemailer from 'nodemailer'
+import mailGun from 'nodemailer-mailgun-transport'
+import { mailgun } from './../config'
 
-var nodemailerMailgun = nodemailer.createTransport(mailGun(mailGunConfig))
+var nodemailerMailgun = nodemailer.createTransport(mailGun(mailgun))
 
 function sendMail (address, subject, content) {
   nodemailerMailgun.sendMail({
@@ -17,4 +17,4 @@ function sendMail (address, subject, content) {
   })
 }
 
-module.exports = sendMail
+export default sendMail
