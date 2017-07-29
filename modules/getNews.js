@@ -1,7 +1,7 @@
-import nightmare from 'nightmare'
+import Horseman from 'node-horseman'
 import cheerio from 'cheerio'
 
-const Nightmare = nightmare()
+const horseman = new Horseman()
 
 function parseContent (content) {
   const $ = cheerio.load(content)
@@ -11,16 +11,16 @@ function parseContent (content) {
 }
 
 function getNews (credentials) {
-  return Nightmare
-    .goto('http://www.goodmorningitalia.it/')
+  return horseman
+    .open('http://www.goodmorningitalia.it/')
     .click('[href="#accedi"]')
     .wait(1000)
     .type('#form_login [type="email"]', credentials.email)
     .type('#form_login [type="password"]', credentials.password)
     .click('#form_login [type="submit"]')
-    .wait('.entry-content')
-    .evaluate(() => document.querySelector('.entry-content').innerHTML)
-    .end()
+    .waitForSelector('.entry-content')
+    .html('.entry-content')
+    .close()
     .then(parseContent)
 }
 
